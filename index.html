@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeterna 2026</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0;
+            background-color: #000; 
+            display: flex; 
+            justify-content: center; 
+        }
+        
+        .poster-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+
+        /* Invisible hotspot over the poster's address text */
+        .address-link {
+            position: absolute;
+            bottom: 2%;
+            left: 5%;
+            width: 90%;
+            height: 18%;
+            background: transparent;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Floating Map Icon */
+        .map-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #1a73e8;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .map-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        <img src="poster.jpg" alt="Aeterna 2026 Poster">
+        
+        <a href="https://maps.app.goo.gl/P69o8F27z68VpM8v7" class="address-link" target="_blank"></a>
+    </div>
+
+    <a href="https://maps.app.goo.gl/P69o8F27z68VpM8v7" class="map-icon" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </a>
+
+</body>
+</html>
