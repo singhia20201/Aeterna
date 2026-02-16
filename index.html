@@ -5,62 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aeterna 2026</title>
     <style>
-        /* 1. RESET & CENTER EVERYTHING */
+        /* 1. FORCE CENTER ALIGNMENT */
         body { 
             margin: 0; 
             padding: 0; 
-            height: 100vh; /* Full screen height */
+            height: 100dvh; /* SPECIAL UNIT: Adapts to mobile address bars */
             width: 100vw;
-            overflow: hidden; /* No scrolling allowed */
+            overflow: hidden; 
             display: flex; 
-            justify-content: center; 
-            align-items: center; 
+            justify-content: center; /* Center Horizontally */
+            align-items: center;     /* Center Vertically */
             background-color: #000;
         }
 
-        /* 2. THE GLASS BACKGROUND (Blurred Wallpaper) */
-        /* This layer sits behind everything and fills the screen */
+        /* 2. BACKGROUND GLASS EFFECT */
         body::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: url('poster.jpg');
-            background-size: cover;     /* Stretches to fill gaps */
+            background-size: cover;
             background-position: center;
-            filter: blur(20px) brightness(0.5); /* Blurs and darkens it */
+            filter: blur(25px) brightness(0.5);
             z-index: -1;
         }
 
-        /* 3. THE SHARP POSTER (Middle) */
+        /* 3. POSTER WRAPPER */
         .poster-wrapper {
             position: relative;
-            /* These limits ensure it never gets cut off */
-            max-width: 100%;
-            max-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.6); /* Adds a shadow to pop it out */
+            width: auto;
+            height: auto;
+            /* Ensures it fits within the screen but maintains aspect ratio */
+            max-width: 100vw; 
+            max-height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 40px rgba(0,0,0,0.7);
         }
 
+        /* 4. THE IMAGE */
         img { 
             display: block;
-            max-width: 100vw; 
-            max-height: 100vh; 
-            width: auto; 
-            height: auto; 
+            max-width: 100%; 
+            max-height: 100dvh; /* Limits height to screen size */
+            object-fit: contain; /* Ensures the whole poster is visible */
         }
 
-        /* 4. INVISIBLE LINK (Bottom area of poster) */
+        /* 5. INVISIBLE LINK (Bottom 20%) */
         .address-link {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 20%; /* Clickable area is bottom 20% */
+            height: 20%; 
             z-index: 10;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* 5. FLOATING MAP BUTTON */
+        /* 6. FLOATING MAP BUTTON */
         .map-icon {
             position: fixed;
             bottom: 30px;
@@ -84,7 +88,6 @@
             fill: white;
         }
 
-        /* Tiny pulse animation to grab attention */
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
